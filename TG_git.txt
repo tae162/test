@@ -1,0 +1,13 @@
+// clone local git
+git clone ../.git 1
+
+// diff working and staged
+git diff
+// diff staged and committed
+git diff --staged
+
+// show status of commit
+git log --stat
+
+// show diff of the recent 2 commits
+git log -p -2
