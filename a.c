@@ -2,12 +2,12 @@
 
 void funcion_a(void)
 {
-	printf("function_a is called\n");
+	printf("[%s] function_a is called\n", __FILE__);
 }
 
 int main(void)
 {
-	printf("hellow tg\n");
+	printf("[%s] hellow tg\n", __FILE__);
 	funcion_a();
 
 	return 0;
