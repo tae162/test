@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-void funcion_a(void)
+extern void func_a1(void);
+extern void func_a2(void);
+
+void func_a0(void)
 {
 	printf("[%s] function_a is called\n", __FILE__);
 }
@@ -8,7 +11,10 @@ void funcion_a(void)
 int main(void)
 {
 	printf("[%s] hellow tg\n", __FILE__);
-	funcion_a();
+	func_a0();
+
+	func_a1();
+	func_a2();
 
 	return 0;
 }

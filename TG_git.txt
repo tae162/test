@@ -1,44 +1,41 @@
 +===============
 + clone
+
+// clone via ssh
+ssh-keygen -t rsa -b 4096 -C "tae162@naver.com"
+ssh-add ~/.ssh/id_rsa
+register ~/.ssh/id_rsa.pub to github
+ssh -T git@github.com	// test ssh
+git clone git@github.com:tae162/test.git
+
 // clone local git
 git clone ../.git 1
 
 +===============
-+ diff
-// diff working and staged
-git diff
-// diff staged and committed
-git diff --staged
++ checkout
+
+// checkout tag v0.1 creating new branch version_0.1
+git checkout -b version_0.1 v0.1
 
 +===============
-+ log
-// show status of commit
-git log --stat
++ config
 
-// show diff of the recent 2 commits
-git log -p -2
+// make alias
+git config --global alias.co checkout
+git config --global alias.br 'branch -av'
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.unstage 'reset HEAD --'
 
-// show readible log
-git log --oneline
-git log --pretty=oneline
-git log --pretty=fomat:"%H %an, %ar: %s"
-fomat:6ebc2425b4c924a4c695db7d22a8138d9bdff61c tae162, 7 minutes ago: delete a1
+git config --global alias.ll 'log --pretty=format:"\%H \%an, \%ar: \%s" --graph'
+git config --global alias.ls 'log --oneline --decorate'
+git config --global alias.last 'log -1 HEAD -p'
 
-git log --pretty=fomat:"%H %an, %ar: %s" --graph
-
-// search log with author
-git log --author="tae162"
-
-// search log with keyword
-git log -S function_a -p --stat
-
-+===============
-+ commit
-// replace the last commit with update (files, messages, etc)
-git commit -m "add file name" --amend
+git config --global alias.visual '!gitk'
 
 +===============
 + remote
+
 git remote -v
 origin	https://github.com/tae162/test.git (fetch)
 origin	https://github.com/tae162/test.git (push)
@@ -46,8 +43,17 @@ origin	https://github.com/tae162/test.git (push)
 git remote show origin
 
 +===============
++ commit
+
+// replace the last commit with update (files, messages, etc)
+git commit -m "add file name" --amend
+
++===============
 + branch
+
 git branch -av
+// create test branch
+git branch test
 
 +===============
 + tag
@@ -69,14 +75,46 @@ git tag -l "v0.1*"
 // delete tag
 git tag -d v1.0
 
-// push tag (git push doesn't push tags)
-git push origin --tags
++===============
++ diff
+
+// diff working and staged
+git diff
+// diff staged and committed
+git diff --staged
 
 +===============
-+ clone via ssh
-ssh-keygen -t rsa -b 4096 -C "tae162@naver.com"
-ssh-add ~/.ssh/id_rsa
-// register ~/.ssh/id_rsa.pub to github
-ssh -T git@github.com	// test ssh
-git clone git@github.com:tae162/test.git
++ log
+
+// show status of commit
+git log --stat
+
+// show diff of the recent 2 commits
+git log -p -2
+
+// show readible log
+git log --oneline
+git log --pretty=oneline
+git log --pretty=fomat:"%H %an, %ar: %s"
+fomat:6ebc2425b4c924a4c695db7d22a8138d9bdff61c tae162, 7 minutes ago: delete a1
+
+git log --pretty=fomat:"%H %an, %ar: %s" --graph
+
+// search log with author
+git log --author="tae162"
+
+// search log with keyword
+git log -S function_a -p --stat
+
++===============
++ push
+
+// push all branches (git push doesn't push branch)
+git push origin --branch
+git push --branch
+
+// push tag (git push doesn't push tags)
+git push origin --tags
+git push --tags
+
 
