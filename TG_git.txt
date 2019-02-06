@@ -69,4 +69,14 @@ git tag -l "v0.1*"
 // delete tag
 git tag -d v1.0
 
+// push tag (git push doesn't push tags)
+git push origin --tags
+
++===============
++ clone via ssh
+ssh-keygen -t rsa -b 4096 -C "tae162@naver.com"
+ssh-add ~/.ssh/id_rsa
+// register ~/.ssh/id_rsa.pub to github
+ssh -T git@github.com	// test ssh
+git clone git@github.com:tae162/test.git
 
