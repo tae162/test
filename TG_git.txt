@@ -65,6 +65,20 @@ git branch -av
 // create test branch
 git branch test
 
+// delete test branch
+git branch -d test
+
+// force to delete test branch that's not merged
+git branch -D test
+
+// list branches that has merged
+git branch --merged
+git branch --no-merged
+
+// list branches that has merged with testing branch
+git branch --merged testing
+git branch --no-merged testing
+
 +===============
 + merge/fetch/pull/rebase
 
@@ -166,4 +180,23 @@ git stash
 
 // restore
 git stash pop
+
++===============
++ tools
+git mergetool
+git gitk
+
+
++===============
++ usecase
+
+// hotfix in new branch and merge to master
+git checkout -b hotfix
+fix code
+git commit -m "hotfix"
+git checkout master
+git merge hotfix
+git branch -d hotfix
+
+
 
