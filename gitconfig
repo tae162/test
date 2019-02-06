@@ -1,0 +1,16 @@
+[user]
+	name = tae162
+	email = tae162@naver.com
+[color]
+	ui = true
+[push]
+	default = matching
+[alias]
+	co = checkout
+	br = branch -av
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	ll = log --pretty=format:\"%H %an, %ar: %s\" --graph --all
+	ls = log --oneline --decorate=full --graph --all
+	last = log -1 HEAD -p

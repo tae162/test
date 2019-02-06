@@ -17,6 +17,10 @@ git clone ../.git 1
 // checkout tag v0.1 creating new branch version_0.1
 git checkout -b version_0.1 v0.1
 
+// checkout(move HEAD) to previous commit from current
+git checkout HEAD~1		// one commit before (=HEAD^)
+git checkout HEAD~3		// three commits before
+
 +===============
 + config
 
@@ -42,6 +46,8 @@ origin	https://github.com/tae162/test.git (push)
 
 git remote show origin
 
+git remote add hub https://github.com/tae162/test.git
+
 +===============
 + commit
 
@@ -59,8 +65,14 @@ git branch test
 +===============
 + merge/fetch/pull/rebase
 
+// origin master by default if no other repository and branch
+git pull (origin master)
+
+// fetch and merge remote origin server's master branch
+git pull origin master = git pull (default behavior)
+
 // do fast-forward if possible (default behavior)
-// only update the branch pointer, without creating a merge commit
+// fast-forward only moves a branch pointer, without creating a merge commit
 git merge --ff
 
 // create a merge commit even when the merge resolves as a fast-forward
@@ -70,8 +82,8 @@ git merge --no-ff
 // after this, mastr branch is moved to testing branch
 git merge testing
 
-//
-git rebase testing
+// move the current sperate branches to master before
+git rebase master
 
 +===============
 + tag
@@ -130,9 +142,11 @@ git log -S function_a -p --stat
 +===============
 + push
 
-// push all branches (git push doesn't push branch)
-git push origin --branch
-git push --branch
+// origin master by default if no other repository and branch
+git push (origin master)
+
+// push current branch to remote origin's version_0.1 branch
+git push origin version_0.1
 
 // push tag (git push doesn't push tags)
 git push origin --tags
