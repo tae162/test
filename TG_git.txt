@@ -27,8 +27,8 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.unstage 'reset HEAD --'
 
-git config --global alias.ll 'log --pretty=format:"\%H \%an, \%ar: \%s" --graph'
-git config --global alias.ls 'log --oneline --decorate'
+git config --global alias.ll 'log --pretty=format:"\%H \%an, \%ar: \%s" --graph --all'
+git config --global alias.ls 'log --oneline --decorate=full --graph --all'
 git config --global alias.last 'log -1 HEAD -p'
 
 git config --global alias.visual '!gitk'
@@ -52,8 +52,26 @@ git commit -m "add file name" --amend
 + branch
 
 git branch -av
+
 // create test branch
 git branch test
+
++===============
++ merge/fetch/pull/rebase
+
+// do fast-forward if possible (default behavior)
+// only update the branch pointer, without creating a merge commit
+git merge --ff
+
+// create a merge commit even when the merge resolves as a fast-forward
+git merge --no-ff
+
+// merge testing branch with the current master branch
+// after this, mastr branch is moved to testing branch
+git merge testing
+
+//
+git rebase testing
 
 +===============
 + tag
@@ -80,8 +98,11 @@ git tag -d v1.0
 
 // diff working and staged
 git diff
+
 // diff staged and committed
 git diff --staged
+git diff --cached
+git diff --cached a.c
 
 +===============
 + log
@@ -117,4 +138,15 @@ git push --branch
 git push origin --tags
 git push --tags
 
++===============
++ stash
+
+git stash list
+git stash show -v
+
+// store
+git stash
+
+// restore
+git stash pop
 
