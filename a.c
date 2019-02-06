@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void funcion_a(void)
+void funcion_aaa(void)
 {
 	printf("[%s] function_a is called\n", __FILE__);
 }
