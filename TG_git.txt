@@ -1,13 +1,72 @@
++===============
++ clone
 // clone local git
 git clone ../.git 1
 
++===============
++ diff
 // diff working and staged
 git diff
 // diff staged and committed
 git diff --staged
 
++===============
++ log
 // show status of commit
 git log --stat
 
 // show diff of the recent 2 commits
 git log -p -2
+
+// show readible log
+git log --oneline
+git log --pretty=oneline
+git log --pretty=fomat:"%H %an, %ar: %s"
+fomat:6ebc2425b4c924a4c695db7d22a8138d9bdff61c tae162, 7 minutes ago: delete a1
+
+git log --pretty=fomat:"%H %an, %ar: %s" --graph
+
+// search log with author
+git log --author="tae162"
+
+// search log with keyword
+git log -S function_a -p --stat
+
++===============
++ commit
+// replace the last commit with update (files, messages, etc)
+git commit -m "add file name" --amend
+
++===============
++ remote
+git remote -v
+origin	https://github.com/tae162/test.git (fetch)
+origin	https://github.com/tae162/test.git (push)
+
+git remote show origin
+
++===============
++ branch
+git branch -av
+
++===============
++ tag
+
+// create tag on the current commit
+git tag -a v0.2 -m "version v0.2"
+
+// create tag on specific commit
+git tag -a v0.1 6f7a097fd -m "version v0.1"
+
+// list tag
+git tag
+
+git tag -v v0.1
+
+// search tag
+git tag -l "v0.1*"
+
+// delete tag
+git tag -d v1.0
+
+
