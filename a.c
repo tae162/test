@@ -8,6 +8,11 @@ void func_a0(void)
 	printf("[%s] function_a is called\n", __FILE__);
 }
 
+void test(void)
+{
+	;
+}
+
 int main(void)
 {
 	printf("[%s] hellow tg\n", __FILE__);
@@ -15,6 +20,8 @@ int main(void)
 
 	func_a1();
 	func_a2();
+
+	test();
 
 	return 0;
 }
