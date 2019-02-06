@@ -23,5 +23,6 @@ int main(void)
 
 	test();
 
+	// bug fixed
 	return 0;
 }
