@@ -1,4 +1,10 @@
 +===============
++ init
+
+// create repository
+git init
+
++===============
 + clone
 
 // clone via ssh
@@ -21,8 +27,20 @@ git checkout -b issue33
 git checkout -b version_0.1 v0.1
 
 // checkout(move HEAD) to previous commit from current
-git checkout HEAD~1		// one commit before (=HEAD^)
+git checkout HEAD~1		// one commit before (=HEAD^ = HEAD^1)
 git checkout HEAD~3		// three commits before
+
++===============
++ reset
+
+// clear file of staged area
+git reset file
+
+// set HEAD to commit_id (like checkout)
+git reset commit_id
+
+// set HEAD to commit 10th before
+git reset HEAD~10
 
 +===============
 + config
@@ -169,17 +187,27 @@ git push origin version_0.1
 git push origin --tags
 git push --tags
 
+// register to gerrit
+git push origin HEAD:refs/for/master
+
 +===============
 + stash
 
 git stash list
-git stash show -v
 
 // store
-git stash
+git stash		// move staged files to stash
+git stash -u	// move staged + untracked files to stash
+git stash -a	// move staged + untracked + ignored files to stash
 
-// restore
+// restore (stash@{0} is the latest, stash@{1} is the one before)
 git stash pop
+
+// Like pop, but do not remove the state from the stash list
+git stash apply
+
+// discard
+git stash drop
 
 +===============
 + tools
