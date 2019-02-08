@@ -44,6 +44,28 @@ git reset commit_id
 // set HEAD to commit 10th before
 git reset HEAD~10
 
+// remove last two commits and set HEAD
+git reset --hard HEAD~~
+
+// after "reset --hard", recover log
+git reset --hard ORIG_HEAD
+
++===============
++ rebase
+
+// move the current sperate branches to master before
+git rebase master
+
+// integrate two commits into one new using rebase -i with squash
+git rebase -i HEAD~~
+edit "pick" to "squash"
+
++===============
++ revert
+
+// create new commit reverting the changes at HEAD
+git revert HEAD
+
 +===============
 + config
 
@@ -103,7 +125,7 @@ git branch --no-merged testing
 git branch master 793ef97
 
 +===============
-+ merge/fetch/pull/rebase
++ merge/fetch/pull
 
 // origin master by default if no other repository and branch
 git pull (origin master)
@@ -122,8 +144,11 @@ git merge --no-ff
 // after this, mastr branch is moved to testing branch
 git merge testing
 
-// move the current sperate branches to master before
-git rebase master
++===============
++ cherry-pick
+
+// apply specific commit to HEAD
+git cherry-pick 6a8e8d6
 
 +===============
 + tag
@@ -155,6 +180,13 @@ git diff
 git diff --staged
 git diff --cached
 git diff --cached a.c
+
+
+// diff two commits
+git diff efed623 6a8e8d6
+
+// diff a1.c at two commits
+git diff efed623 6a8e8d6 a1.c
 
 +===============
 + log
@@ -219,7 +251,6 @@ git stash drop
 git mergetool
 git gitk
 
-
 +===============
 + usecase
 
@@ -230,6 +261,4 @@ git commit -m "hotfix"
 git checkout master
 git merge hotfix
 git branch -d hotfix
-
-
 
