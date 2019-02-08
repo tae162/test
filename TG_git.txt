@@ -27,7 +27,9 @@ git checkout -b issue33
 git checkout -b version_0.1 v0.1
 
 // checkout(move HEAD) to previous commit from current
-git checkout HEAD~1		// one commit before (=HEAD^ = HEAD^1)
+// HEAD^ = HEAD^1 = HEAD~1
+// HEAD^^ = HEAD^2 = HEAD~2
+git checkout HEAD~1		// one commit before 
 git checkout HEAD~3		// three commits before
 
 +===============
@@ -96,6 +98,9 @@ git branch --no-merged
 // list branches that has merged with testing branch
 git branch --merged testing
 git branch --no-merged testing
+
+// create branch at specific commit 
+git branch master 793ef97
 
 +===============
 + merge/fetch/pull/rebase
