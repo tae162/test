@@ -181,6 +181,10 @@ git diff --staged
 git diff --cached
 git diff --cached a.c
 
+// diff working and committed branch
+git diff branch
+git diff HEAD
+git diff HEAD -- a.c
 
 // diff two commits
 git diff efed623 6a8e8d6

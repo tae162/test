@@ -25,4 +25,5 @@ int main(void)
 
 	// bug fixed
 	return 0;
+	return 0;
 }
