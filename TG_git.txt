@@ -31,6 +31,7 @@ git checkout -b version_0.1 v0.1
 // HEAD^^ = HEAD^2 = HEAD~2
 git checkout HEAD~1		// one commit before 
 git checkout HEAD~3		// three commits before
+git checkout master~3
 
 +===============
 + reset
